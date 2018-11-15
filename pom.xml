@@ -52,22 +52,7 @@
         </developer>
     </developers>
     <modules>
-        <module>choerodon-starter-mybatis-mapper</module>
-        <module>choerodon-starter-oauth-resource</module>
-        <module>choerodon-starter-swagger</module>
-        <module>choerodon-starter-feign-replay</module>
-        <module>choerodon-starter-config-client</module>
-        <module>choerodon-tool-config</module>
-        <module>choerodon-liquibase</module>
-        <module>choerodon-tool-liquibase</module>
-        <module>choerodon-starter-core</module>
-        <module>choerodon-starter-hitoa</module>
-        <module>choerodon-starter-oauth-core</module>
         <module>choerodon-websocket-helper</module>
-        <module>choerodon-gitlab4j-api</module>
-        <module>choerodon-starter-asgard</module>
-        <module>choerodon-starter-statemachine</module>
-        <module>choerodon-starter-eureka-event</module>
         <!--<module>choerodon-starter-event-producer</module>-->
         <!--<module>choerodon-starter-event-consumer</module>-->
         <!--<module>choerodon-starter-bus</module>-->
