@@ -35,20 +35,20 @@ public class AgentSecurityInterceptor implements SecurityInterceptor {
 
     @Override
     public void check(ServletServerHttpRequest request) {
+        String clusterId = request.getServletRequest().getParameter("clusterId");
+        String token = request.getServletRequest().getParameter("token");
+        String version = request.getServletRequest().getParameter("version");
+        if ((clusterId == null ||
+                clusterId.trim().isEmpty()) ||
+                (token == null || token.trim().isEmpty()) ||
+                version == null || version.trim().isEmpty()){
+            throw new HandshakeFailureException("clusterId or token or version null!");
+        }
         if (agentTokenInterceptor == null){
             if (socketProperties.isSecurity()){
-                throw new RuntimeException("No agent Token check");
+                throw new HandshakeFailureException("No agent Token check");
             }
         }else {
-            String clusterId = request.getServletRequest().getParameter("clusterId");
-            String token = request.getServletRequest().getParameter("token");
-            String version = request.getServletRequest().getParameter("version");
-            if ((clusterId == null ||
-                    clusterId.trim().isEmpty()) ||
-                    (token == null || token.trim().isEmpty()) ||
-                    version == null || version.trim().isEmpty()){
-                throw new RuntimeException("clusterId or token or version null!");
-            }
             boolean success = agentTokenInterceptor.checkToken(request.getServletRequest().getParameter("clusterId"),
                     request.getServletRequest().getParameter("token"));
             if(!success){
